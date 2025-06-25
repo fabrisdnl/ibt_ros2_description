@@ -9,24 +9,25 @@
     <xacro:arg name="joint_limits_file"
         default="$(find ibt_ros2_description)/config/$(arg arm_type)/joint_limits.yaml" />
     <!-- Arguments for camera -->
-    <xacro:arg name="camera_name" default="oak" />
-	<xacro:arg name="camera_model" default="OAK-D-SR-POE" />
-	<xacro:arg name="base_frame" default="oak-d-base-frame" />
-	<xacro:arg name="parent_frame" default="robofox_link6" />
-	<xacro:arg name="cam_pos_x" default="0.114" />
-	<xacro:arg name="cam_pos_y" default="-0.017" />
-	<xacro:arg name="cam_pos_z" default="0.028" />
-	<xacro:arg name="cam_roll" default="0.0" />
-	<xacro:arg name="cam_pitch" default="0.0" />
-	<xacro:arg name="cam_yaw" default="0.0" />
+    <xacro:arg name="camera_name" default="d435i" />
+	<!--xacro:arg name="parent_frame" default="GRIPPER" /-->
+    <!-- TODO: update position values -->
+	<xacro:arg name="cam_pos_x" default="0" />
+	<xacro:arg name="cam_pos_y" default="0.13204" />
+	<xacro:arg name="cam_pos_z" default="-0.0660" />
+	<xacro:arg name="cam_roll" default="3.1416" />
+	<xacro:arg name="cam_pitch" default="-1.5708" />
+	<xacro:arg name="cam_yaw" default="1.5708" />
 	<xacro:arg name="has_imu" default="false" />
 
     <!-- Amr combo base -->
     <xacro:include filename="$(find ibt_ros2_description)/xacro/amr/amr.xacro" />
     <!-- Robotic arm -->
     <xacro:include filename="$(find ibt_ros2_description)/xacro/robofox/robofox.xacro" />
-    <!-- Oak camera -->
-    <xacro:include filename="$(find depthai_descriptions)/urdf/include/base_macro.urdf.xacro" />
+    <!-- Grip exon -->
+    <xacro:include filename="$(find grip_exon)/urdf/grip_exon.urdf.xacro" />
+    <!-- Realsense camera -->
+    <xacro:include filename="$(find realsense2_description)/urdf/_d435i.urdf.xacro" />
 
     <!-- Instances -->
     <xacro:amr>
@@ -43,13 +44,15 @@
         <origin xyz="0 0 0" rpy="0 0 ${pi/2}" />
     </xacro:robofox>
 
-    <xacro:base
-        camera_name="$(arg camera_name)" parent="$(arg parent_frame)"
-		camera_model="$(arg camera_model)" base_frame="$(arg base_frame)"
-		cam_pos_x="$(arg cam_pos_x)" cam_pos_y="$(arg cam_pos_y)" cam_pos_z="$(arg cam_pos_z)"
-		cam_roll="$(arg cam_roll)" cam_pitch="$(arg cam_pitch)" cam_yaw="$(arg cam_yaw)"
-		has_imu="$(arg has_imu)"
+    <xacro:grip_exon parent="robofox_link6">
+        <origin xyz="0 0 0" rpy="0 0 ${pi/2}" />
+    </xacro:grip_exon>
+
+    <xacro:sensor_d435i
+        name="$(arg camera_name)"
+        parent="GRIPPER"
     >
-    </xacro:base>
+        <origin xyz="$(arg cam_pos_x) $(arg cam_pos_y) $(arg cam_pos_z)" rpy="$(arg cam_roll) $(arg cam_pitch) $(arg cam_yaw)" />
+    </xacro:sensor_d435i>
 
 </robot>
