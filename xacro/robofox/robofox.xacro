@@ -196,7 +196,7 @@
       name="${arm_prefix}_joint1"
       type="revolute">
       <origin
-        xyz="0 0 0.119"
+        xyz="0 0 0.117"
         rpy="0 0 0" />
       <parent
         link="${arm_prefix}_base_link" />
@@ -436,7 +436,7 @@
       name="${arm_prefix}_joint5"
       type="revolute">
       <origin
-        xyz="0 0 0.6751"
+        xyz="0 0 0.675"
         rpy="-${pi/2.0} 0 0" />
       <parent
         link="${arm_prefix}_link4" />
@@ -496,7 +496,7 @@
       name="${arm_prefix}_joint6"
       type="revolute">
       <origin
-        xyz="0 -0.36 0"
+        xyz="0 -0.3681 0"
         rpy="${pi/2.0} 0 0" />
       <parent
         link="${arm_prefix}_link5" />
