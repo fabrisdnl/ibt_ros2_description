@@ -13,8 +13,8 @@
 	<!--xacro:arg name="parent_frame" default="GRIPPER" /-->
     <!-- TODO: update position values -->
 	<xacro:arg name="cam_pos_x" default="0" />
-	<xacro:arg name="cam_pos_y" default="0.13204" />
-	<xacro:arg name="cam_pos_z" default="-0.0660" />
+	<xacro:arg name="cam_pos_y" default="0.132" />
+	<xacro:arg name="cam_pos_z" default="-0.06545" />
 	<xacro:arg name="cam_roll" default="3.1416" />
 	<xacro:arg name="cam_pitch" default="-1.5708" />
 	<xacro:arg name="cam_yaw" default="1.5708" />

@@ -50,7 +50,7 @@
     </collision>
   </link>
   <joint name="robofox_joint1" type="revolute">
-    <origin rpy="0 0 0" xyz="0 0 0.119"/>
+    <origin rpy="0 0 0" xyz="0 0 0.117"/>
     <parent link="robofox_base_link"/>
     <child link="robofox_link1"/>
     <axis xyz="0 0 -1"/>
@@ -170,7 +170,7 @@
     </collision>
   </link>
   <joint name="robofox_joint5" type="revolute">
-    <origin rpy="-1.5707963267948966 1.5707963267948966 0" xyz="0 0 0.6751"/>
+    <origin rpy="-1.5707963267948966 1.5707963267948966 0" xyz="0 0 0.675"/>
     <parent link="robofox_link4"/>
     <child link="robofox_link5"/>
     <axis xyz="0 0 -1"/>
@@ -200,7 +200,7 @@
     </collision>
   </link>
   <joint name="robofox_joint6" type="revolute">
-    <origin rpy="1.5707963267948966 3.141592653589793 0" xyz="0 -0.36 0"/>
+    <origin rpy="1.5707963267948966 3.141592653589793 0" xyz="0 -0.3681 0"/>
     <parent link="robofox_link5"/>
     <child link="robofox_link6"/>
     <axis xyz="0 0 -1"/>
